@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="conference-registration.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conference Registration Form</title>
+  </head>
+  <body>
+    <form>
+      <!-- Personal Information -->
+      <fieldset>
+        <legend>Personal Information</legend>
+
+        <p>
+          <label for="full-name">Full name:</label>
+          <input
+            type="text"
+            id="full-name"
+            name="full-name"
+            required
+            placeholder="John Doe"
+          />
+        </p>
+
+        <p>
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="john@example.com"
+          />
+        </p>
+
+        <p>
+          <label for="phone">Phone Number:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            required
+            placeholder="123-456-7890"
+          />
+        </p>
+      </fieldset>
+
+      <!-- Ticket and Workshops -->
+      <fieldset>
+        <legend>Ticket & Workshops</legend>
+
+        <!-- Ticket Type -->
+        <fieldset>
+          <legend>Ticket Type</legend>
+          <p>
+            <label
+              ><input type="radio" name="type" value="standard" required />
+              Standard</label
+            >
+          </p>
+          <p>
+            <label><input type="radio" name="type" value="vip" /> VIP</label>
+          </p>
+          <p>
+            <label
+              ><input type="radio" name="type" value="student" id="student"/> Student</label
+            >
+          </p>
+          <p id="student-details" style="display: none;">
+            <label for="student-details-img">chose file</label>
+            <input type="file" id="student-details-img" name="student-details-img" accept="pdf, jpg, png" required>
+          </p>
+        </fieldset>
+
+        <!-- Workshops -->
+        <fieldset>
+          <legend>Workshops</legend>
+          <p>
+            <label
+              ><input type="checkbox" name="shop" value="Web-Performance" /> Web
+              Performance</label
+            >
+          </p>
+          <p>
+            <label
+              ><input type="checkbox" name="shop" value="Accessibility" />
+              Accessibility</label
+            >
+          </p>
+          <p>
+            <label
+              ><input type="checkbox" name="shop" value="Testing" />
+              Testing</label
+            >
+          </p>
+        </fieldset>
+
+        <!-- Diet Preferences -->
+        <fieldset>
+          <legend>Diet</legend>
+          <p>
+            <label
+              ><input type="radio" name="diet" value="none" required />
+              None</label
+            >
+          </p>
+          <p>
+            <label
+              ><input type="radio" name="diet" value="vegan" /> Vegan</label
+            >
+          </p>
+          <p>
+            <label
+              ><input type="radio" name="diet" value="kosher" /> Kosher</label
+            >
+          </p>
+          <p>
+            <label
+              ><input type="radio" name="diet" value="halal" /> Halal</label
+            >
+          </p>
+          <p>
+            <label
+              ><input type="radio" name="diet" value="other" id="diet-other" />
+              Other</label
+            >
+          </p>
+          <p id="diet-other-details" style="display: none">
+            <label for="diet-other-text">Please specify:</label>
+            <input type="text" id="diet-other-text" name="diet-other-text" />
+          </p>
+        </fieldset>
+      </fieldset>
+
+      <!-- Payment Details -->
+      <fieldset>
+        <legend>Payment Details</legend>
+
+        <p>
+          <label for="card-number">Card number:</label>
+          <input
+            type="text"
+            id="card-number"
+            name="card-number"
+            inputmode="numeric"
+            pattern="[0-9]{13,19}"
+            placeholder="1234567812345678"
+            required
+          />
+        </p>
+
+        <p>
+          <label for="expiry-date">Expiry date:</label>
+          <input type="month" id="expiry-date" name="expiry-date" required />
+        </p>
+
+        <p>
+          <label for="cvv">CVV:</label>
+          <input
+            type="password"
+            id="cvv"
+            name="cvv"
+            pattern="[0-9]{3,4}"
+            placeholder="123"
+            required
+          />
+        </p>
+      </fieldset>
+
+      <!-- Submit Button -->
+      <p>
+        <button type="submit">Submit Registration</button>
+      </p>
+    </form>
+    <script src="conference-registration.js"></script>
+  </body>
+</html>

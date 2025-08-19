@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Start Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Welcome to the Guessing Game</h1>
+
+  <button id="default-range">Start with default range (1–100)</button>
+
+  <h3>Or define your own range:</h3>
+  <form id="custom-range-form">
+    <input type="number" id="min" placeholder="Min value" required />
+    <input type="number" id="max" placeholder="Max value" required />
+    <button type="submit">Start with custom range</button>
+  </form>
+
+  <script>
+    const defaultBtn = document.getElementById("default-range");
+    const form = document.getElementById("custom-range-form");
+    const minInput = document.getElementById("min");
+    const maxInput = document.getElementById("max");
+
+    defaultBtn.addEventListener("click", () => {
+      sessionStorage.removeItem("min");
+      sessionStorage.removeItem("max");
+      window.location.href = "game.html";
+    });
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const min = parseInt(minInput.value);
+      const max = parseInt(maxInput.value);
+
+      if (isNaN(min) || isNaN(max) || min >= max) {
+        alert("Please enter a valid range (min < max)");
+        return;
+      }
+
+      sessionStorage.setItem("min", min);
+      sessionStorage.setItem("max", max);
+      window.location.href = "game.html";
+    });
+  </script>
+
+</body>
+</html>
